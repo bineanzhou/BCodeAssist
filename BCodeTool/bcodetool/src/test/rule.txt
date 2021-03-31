@@ -1,0 +1,3 @@
+rule junit.**   com.qh1.@1
+rule org.junit.** org.qh2.@1
+

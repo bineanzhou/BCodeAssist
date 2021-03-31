@@ -1,0 +1,3 @@
+include ':bcodetool'
+include ':app'
+rootProject.name = "BCodeDemo"
