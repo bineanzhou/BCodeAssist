@@ -8,3 +8,4 @@ jar -xvf ../bcodetool/libs/asm-commons-4.0.jar
 jar -xvf ../bcodetool/build/libs/bcodetool.jar
 mkdir -p ../jar
 jar -cvfM ../jar/bcode_tool.jar .
+rm -rf bcode_temp
