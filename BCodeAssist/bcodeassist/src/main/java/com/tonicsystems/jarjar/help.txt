@@ -3,16 +3,16 @@ Copyright 2007 Google Inc.
 
 Command-line usage:
 
-  java -jar jarjar.jar [help]
+  java -jar bcodeassist.jar [help]
 
     Prints this help message.
 
-  java -jar jarjar.jar strings <cp>
+  java -jar bcodeassist.jar strings <cp>
 
     Dumps all string literals in classpath <cp>. Line numbers will be
     included if the classes have debug information.
 
-  java -jar jarjar.jar find <level> <cp1> [<cp2>]
+  java -jar bcodeassist.jar find <level> <cp1> [<cp2>]
 
     Prints dependencies on classpath <cp2> in classpath <cp1>. If <cp2>
     is omitted, <cp1> is used for both arguments.
@@ -23,7 +23,7 @@ Command-line usage:
     any classpath component, which can be a jar file, a zip file, or a
     parent directory (see below).
 
-  java -jar jarjar.jar process <rulesFile> <inJar> <outJar>
+  java -jar bcodeassist.jar process <rulesFile> <inJar> <outJar>
 
     Transform the <inJar> jar file, writing a new jar file to <outJar>.
     Any existing file named by <outJar> will be deleted.

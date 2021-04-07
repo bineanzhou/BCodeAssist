@@ -9,16 +9,16 @@ public class Help {
             "\n" +
             "Command-line usage:\n" +
             "\n" +
-            "  java -jar jarjar.jar [help]\n" +
+            "  java -jar bcodeassist.jar [help]\n" +
             "\n" +
             "    Prints this help message.\n" +
             "\n" +
-            "  java -jar jarjar.jar strings <cp>\n" +
+            "  java -jar bcodeassist.jar strings <cp>\n" +
             "\n" +
             "    Dumps all string literals in classpath <cp>. Line numbers will be\n" +
             "    included if the classes have debug information.\n" +
             "\n" +
-            "  java -jar jarjar.jar find <level> <cp1> [<cp2>]\n" +
+            "  java -jar bcodeassist.jar find <level> <cp1> [<cp2>]\n" +
             "\n" +
             "    Prints dependencies on classpath <cp2> in classpath <cp1>. If <cp2>\n" +
             "    is omitted, <cp1> is used for both arguments.\n" +
@@ -29,7 +29,7 @@ public class Help {
             "    any classpath component, which can be a jar file, a zip file, or a\n" +
             "    parent directory (see below).\n" +
             "\n" +
-            "  java -jar jarjar.jar process <rulesFile> <inJar> <outJar>\n" +
+            "  java -jar bcodeassist.jar process <rulesFile> <inJar> <outJar>\n" +
             "\n" +
             "    Transform the <inJar> jar file, writing a new jar file to <outJar>.\n" +
             "    Any existing file named by <outJar> will be deleted.\n" +
