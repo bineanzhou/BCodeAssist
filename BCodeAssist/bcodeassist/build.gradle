@@ -6,19 +6,50 @@ java {
     sourceCompatibility = JavaVersion.VERSION_1_7
     targetCompatibility = JavaVersion.VERSION_1_7
 }
-jar {
-    manifest.attributes(
-            'Manifest-Version': "1.0",
-            'Ant-Version': "Apache Ant 1.8.2",
-            'Created-By': "1.5.0_22-b03 (Sun Microsystems Inc.)",
-            'Main-Class': "com.tonicsystems.jarjar.Main",
-            'Implementation-Version': "1.4",
-    )
+ext{
+    JAR_VERSION = "1.0.0"
+    BCODE_JAR_PATH = "${project.rootDir}/bcodeassist/build/libs"
+}
 
+
+
+jar {
+    println("jar")
+    manifest.attributes(
+//            'Manifest-Version': "$JAR_VERSION",
+//            'Ant-Version': "Apache Ant 1.8.2",
+//            'Created-By': "1.5.0_22-b03 (Sun Microsystems Inc.)",
+            'Main-Class': "com.tonicsystems.jarjar.Main",
+            'Implementation-Version': JAR_VERSION,
+    )
     from('src/main/java/com/tonicsystems/jarjar') {
+
         include '/**/*.txt'
         into 'com/tonicsystems/jarjar'
     }
+
+
+}
+task makeJar(type: Copy) {
+    group("build")
+    def destPath="output"
+    println "copy bcodeassist_v${JAR_VERSION}.jar into $destPath"
+    delete "$destPath/bcodeassist_v${JAR_VERSION}.jar"
+    from('./build/libs')
+    into(destPath)
+    include("bcodeassist.jar")
+    rename("bcodeassist.jar", "bcodeassist_v${JAR_VERSION}.jar")
+}
+makeJar.dependsOn(jar)
+makeJar.doLast {
+    println "makeJar.doLast"
+    exec{
+        workingDir './'
+        commandLine "sh", "make_jar.sh", "v${JAR_VERSION}"
+    }
+
+}
+this.afterEvaluate {
 }
 
 dependencies {
